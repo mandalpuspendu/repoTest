@@ -1,14 +1,15 @@
 <html>
 	<head>
 		<title>Employee Task Assignment </title>
-		<script type="text/javascript" src="test3.js"></script>
+		
 		<link rel="stylesheet" href="test3.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 	</head>
 	<body>
+		
 		<div class='container'>
 			<div class='jumbotron'>
 				<h1> Task Assignment test Project </h1>
@@ -37,7 +38,8 @@
 				<div>
 			</div>
 		</div>
-
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="test3.js"></script>
 		
 	</body>
 </html>
