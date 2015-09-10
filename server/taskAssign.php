@@ -1,12 +1,15 @@
 <?php
-	$command=$_POST['command'];
-	require('dataConnectionString.php');
+	$json = file_get_contents('php://input'); 
+	$obj = json_decode($json);
+	echo $obj;
+	/*$command=$obj->taskCommand;
+	require('dbConnection.php');
 	//echo "$command";
 	switch($command){
 		case "insert":
-			$taskName=$_POST['taskName'];
-			$taskDuration=$_POST['taskDuration'];
-			$taskStatus=$_POST['taskStatus'];
+			$taskName=$obj->taskName;
+			$taskDuration=$obj->taskDuration;
+			$taskStatus=$obj->taskStatus;
 			$id=uniqid();
 			$taskId=substr($id,-4,4);
 			//echo "$id\n";
@@ -24,8 +27,8 @@
 			//mysqli_close($conn);
 			break;
 		case "update":
-			$state=$_POST['taskStatus'];
-			$taskId=$_POST['taskId'];
+			$state=$obj->taskStatus;
+			$taskId=$obj->taskId;
 			//require('dataConnectionString.php');
 			$sql="update task set status='$state' where taskId='$taskId'";
 			$result=mysqli_query($conn,$sql);
@@ -34,7 +37,7 @@
 			
 			break;
 		case "remove":
-			$taskId=$_POST[taskId];
+			$taskId=$obj->taskId;
 			//require('dataConnectionString.php');
 			$sql="delete from task where taskId='$taskId'";
 			$result=mysqli_query($conn,$sql);
@@ -52,6 +55,6 @@
    				 $arr[] = $rows;
 			}
 			echo json_encode($arr);
-	}	
+	}	*/
 	mysqli_close($conn);
 ?>

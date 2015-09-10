@@ -1,0 +1,69 @@
+<!doctype html>
+<html charset="utf-8" lang="en">
+	<head>
+		<title>Task assign Using knockout</title>
+		<link rel="stylesheet" href="../lib/css/bootstrap-3.3.5/css/bootstrap.min.css">
+		<meta charset="utf-8">
+		<script type="text/javascript" src="../lib/js/knockout-3.3.0.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery.js"></script>
+	</head>
+	<body>
+		<div class='container'>
+			<div class='jumbotron'>
+				<h1> Task Assignment test Project </h1>
+			</div>
+			<!-- Template: New Born Task -->
+			<script id="newTaskTemplate" type="text/html">
+				<div data-bind='atr: {id:taskId}'>
+					<p>Task Name:<span data-bind='text: taskName'</span></p>
+					<p>Task Id:<span data-bind='text:taskId'</span></p>
+					<p>Duration:<span data-bind='text:taskDuration'</span></p>
+				</div>
+			</script>
+			<div class="row">
+				<div class="col-sm-6">
+					<div>
+						<form id="formSubmit" data-bind="submit:createTask">
+							Task Name:
+							<input type="text" id="Name" placeholder="Enter Task Name" data-bind="value:taskName " required><br/>
+							Task Duration:
+							<input type="text" id="Duration" placeholder="Enter Duration" required data-bind="value:taskDuration"><br/>
+							<input type="submit" id="taskSubmit" value="Task Submit" >
+						</form>
+					</div>
+					<div id="taskContainner">
+						<div data-bind="template:{name:'newTaskTemplate',foreach:taskList}, visible=true, async:false"></div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="row">
+						<div class="col-sm-4" id="processing"><h3>Processing</h3></div>
+						<div class="col-sm-4" id="development"><h3>Development</h3></div>
+						<div class="col-sm-4" id="design"><h3>Design</h3></div>
+					</div>
+				<div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var taskController=function(){
+				//this.taskId=ko.observable("");
+				var self=this;
+				self.taskName=ko.observable("");
+				self.taskDuration=ko.observable("");
+				self.taskList=ko.observableArray([]); 
+				self.taskStatus=ko.observable("new born");
+				self.createTask=function(){
+					console.log(this.taskName);
+
+					//var task=new taskModel("null",self.taskName,self.taskDuration,self.taskStatus);
+					//console.log(task)
+				}
+			}
+			ko.applyBindings(new taskController());
+		</script>
+		
+		<!--script type="text/javascript" src="../controller/taskController.js"></script>
+		<script type="text/javascript" src="../viewModels/taskModel.js"></script-->
+		<script src="../lib/css/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+	</body>
+</html>

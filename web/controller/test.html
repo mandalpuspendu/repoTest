@@ -1,0 +1,27 @@
+<!doctype html>
+<html charset="utf-8" lang="en">
+	<head>
+		<link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css">
+		<script type="text/javascript" src="knockout-3.3.0.js"></script>
+		<script type="text/javascript" src="jquery.js"></script>
+	</head>
+	<body>
+		<div>
+			<form id="formSubmit" data-bind="submit:add">
+				name:<input type="text" data-bind="value:name"/>
+					<button id="submit" type="submit">submit</button>
+			</form>
+		</div>
+		<span data-bind="value:name"></span>
+		<script type="text/javascript">
+			var viewModel=function(){
+				this.name=ko.observable();
+				this.add=function(){
+					console.log(this.name);
+				};
+				//console.log(name)
+			};
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>
